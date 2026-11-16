@@ -1,0 +1,70 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@500;600;700&family=Courier+Prime:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FBF5EA;--navy:#15213D;--red:#D8253F;--yel:#F2A900;--land:#EFE7DA}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1080px;background:var(--cream);overflow:hidden;font-family:Poppins,sans-serif;position:relative}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#e9dfd0 1.5px,transparent 1.5px),linear-gradient(90deg,#e9dfd0 1.5px,transparent 1.5px);background-size:90px 90px;opacity:.7}
+.top{position:absolute;top:60px;width:100%;text-align:center}
+.top h1{font-family:Anton;font-weight:400;font-size:84px;line-height:1;color:var(--navy);letter-spacing:1px}
+.top h1 span{color:var(--red)}
+.top p{margin-top:10px;font-size:30px;font-weight:500;color:var(--navy)}
+.bottom{position:absolute;bottom:55px;width:100%;display:flex;flex-direction:column;align-items:center;gap:18px}
+.yt{display:flex;align-items:center;gap:22px;background:var(--navy);color:#fff;padding:14px 36px 14px 20px;border-radius:999px;box-shadow:0 10px 0 rgba(21,33,61,.18)}
+.yt .play{width:70px;height:50px;background:var(--red);border-radius:16px;display:grid;place-items:center}
+.yt .play i{width:0;height:0;border-left:26px solid #fff;border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:6px}
+.yt b{font-size:40px;font-weight:700;letter-spacing:.5px}
+.tape{font-family:'Courier Prime',monospace;font-weight:700;font-size:25px;letter-spacing:4px;color:var(--navy);background:var(--yel);padding:12px 26px;transform:rotate(-2deg);box-shadow:0 6px 0 rgba(0,0,0,.08)}
+svg.main{position:absolute;left:0;top:0}
+</style></head><body>
+<div class="grid"></div>
+<svg class="main" width="1080" height="1080" viewBox="0 0 1080 1080">
+ <defs>
+  <radialGradient id="plate" cx="50%" cy="45%" r="55%"><stop offset="0" stop-color="#ffffff"/><stop offset=".8" stop-color="#f7f3ee"/><stop offset="1" stop-color="#e6dfd5"/></radialGradient>
+  <radialGradient id="well" cx="50%" cy="42%" r="60%"><stop offset="0" stop-color="#fffefc"/><stop offset=".85" stop-color="#f6f1ea"/><stop offset="1" stop-color="#e9e2d8"/></radialGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceAlpha" stdDeviation="22"/><feOffset dy="26" dx="10"/><feComponentTransfer><feFuncA type="linear" slope=".28"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="ink" x="-10%" y="-10%" width="120%" height="120%">
+   <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="1" seed="4" result="n"/>
+   <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" result="d"/>
+   <feTurbulence type="fractalNoise" baseFrequency=".5" numOctaves="2" seed="9" result="sp"/>
+   <feColorMatrix in="sp" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -3 2.6" result="m"/>
+   <feComposite in="d" in2="m" operator="in"/>
+  </filter>
+  <path id="arcTop" d="M -128,0 A 128,128 0 0 1 128,0"/>
+  <path id="arcBot" d="M -150,0 A 150,150 0 0 0 150,0"/>
+ </defs>
+ <!-- dashed routes -->
+ <path d="M -40 470 Q 300 330 540 470" fill="none" stroke="#e07a86" stroke-width="3" stroke-dasharray="12 12" opacity=".6"/>
+ <path d="M 540 760 Q 820 880 1120 760" fill="none" stroke="#e07a86" stroke-width="3" stroke-dasharray="12 12" opacity=".6"/>
+ <circle cx="96" cy="800" r="9" fill="#D8253F" opacity=".7"/><circle cx="1000" cy="300" r="9" fill="#D8253F" opacity=".7"/>
+ <!-- plate -->
+ <g transform="translate(540,545) scale(.7)" filter="url(#shadow)">
+  <circle r="300" fill="url(#plate)" stroke="#e2d9cc" stroke-width="2"/>
+  <circle r="292" fill="none" stroke="#D8253F" stroke-width="3" opacity=".35"/>
+  <circle r="214" fill="url(#well)" stroke="#e4dcd0" stroke-width="3"/>
+  <circle r="212" fill="none" stroke="#000" stroke-opacity=".05" stroke-width="10"/>
+  <path d="M -250 -150 A 292 292 0 0 1 120 -268" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" opacity=".9"/>
+ </g>
+ <!-- stamp -->
+ <g transform="translate(540,545) scale(.7) rotate(-8)" filter="url(#ink)" fill="#D8253F" stroke="#D8253F" opacity=".95">
+  <circle r="178" fill="none" stroke-width="8"/>
+  <circle r="166" fill="none" stroke-width="2.5"/>
+  <circle r="100" fill="none" stroke-width="3.5"/>
+  <text font-family="Anton" font-size="40" letter-spacing="4" stroke="none"><textPath href="#arcTop" startOffset="50%" text-anchor="middle">CARIMBO NO PRATO</textPath></text>
+  <text font-family="Courier Prime" font-weight="700" font-size="21" letter-spacing="5" stroke="none" dy="0"><textPath href="#arcBot" startOffset="50%" text-anchor="middle">PROVANDO PELO MUNDO</textPath></text>
+  <g stroke="none"><path transform="translate(-136,30) scale(1.05)" d="M0,-10 L2.9,-3.1 L10,-3.1 L4.3,1.2 L6.5,8.1 L0,4 L-6.5,8.1 L-4.3,1.2 L-10,-3.1 L-2.9,-3.1Z"/><path transform="translate(136,30) scale(1.05)" d="M0,-10 L2.9,-3.1 L10,-3.1 L4.3,1.2 L6.5,8.1 L0,4 L-6.5,8.1 L-4.3,1.2 L-10,-3.1 L-2.9,-3.1Z"/></g>
+  <!-- mini plate + cutlery -->
+  <circle r="44" fill="none" stroke-width="6"/><circle r="29" fill="none" stroke-width="3"/>
+  <g stroke="none">
+   <rect x="-72" y="-48" width="4" height="28" rx="2"/><rect x="-64" y="-48" width="4" height="28" rx="2"/><rect x="-56" y="-48" width="4" height="28" rx="2"/>
+   <path d="M-74,-23 h24 q0,12 -8,15 v56 q0,5 -4,5 q-4,0 -4,-5 v-56 q-8,-3 -8,-15z"/>
+   <path d="M56,-48 q14,12 12,48 h-5 v48 q0,5 -4,5 q-4,0 -4,-5z"/>
+  </g>
+ </g>
+</svg>
+<div class="top"><h1>GOSTOU DESSE <span>CARIMBO?</span></h1><p>O vídeo completo está no YouTube</p></div>
+<div class="bottom">
+ <div class="yt"><div class="play"><i></i></div><b>@carimbonoprato</b></div>
+ <div class="tape">TODA SEMANA TEM CARIMBO NOVO</div>
+</div>
+</body></html>
